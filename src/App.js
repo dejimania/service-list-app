@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Clock from './Clock.js';
 import { Component } from 'react';
+import ColoredBlock from './ColoredBlock.js'
 
 // let time = new Date().toLocaleString();
 
@@ -11,10 +12,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>
-            Welcome to React
-          </h2>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1>
+            My React App
+          </h1>
           {/* <a
             className="App-link"
             href="https://reactjs.org"
@@ -24,12 +25,11 @@ class App extends Component {
             Learn React
           </a> */}
         </header>
-        <div>
-          <p className="App-intro">
-          Hi {this.props.name}
-          </p>
-          <Clock ></Clock>
+        <div className="main-content">
+          <ColoredBlock></ColoredBlock>
+          {/* <Clock ></Clock> */}
         </div>
+        <footer>Copyright kayluv 2020</footer>
       </div>
     );
   }
