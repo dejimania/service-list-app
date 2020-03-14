@@ -3,18 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import Clock from './Clock.js';
 import { Component } from 'react';
-import ColoredBlock from './ColoredBlock.js'
+import Products from './Products.js';
+// import ColoredBlock from './ColoredBlock.js'
 
 // let time = new Date().toLocaleString();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1>
-            My React App
+            My React Products List App
           </h1>
           {/* <a
             className="App-link"
@@ -25,10 +26,13 @@ class App extends Component {
             Learn React
           </a> */}
         </header>
-        <div className="main-content">
-          <ColoredBlock></ColoredBlock>
+        {/* <div className="main-content">
+          <ColoredBlock></ColoredBlock> */}
           {/* <Clock ></Clock> */}
-        </div>
+        {/* </div> */}
+        <section>
+          <Products></Products>
+        </section>
         <footer>Copyright kayluv 2020</footer>
       </div>
     );
