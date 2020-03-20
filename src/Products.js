@@ -23,13 +23,20 @@ class Products extends React.Component {
       inStockOnly: false,
       products: PRODUCTS,
     };
+    this.handleFilter = this.handleFilter.bind(this);
   }
+
+  handleFilter(filterInput) {
+    this.setState(filterInput);
+  }
+
   render() {
     return (
       <div>
         <Filters
         filterText={this.state.filterText}
-        inStockOnly={this.state.inStockOnly}>
+        inStockOnly={this.state.inStockOnly}
+        onFilter={this.handleFilter}>
         </Filters>
         <ProductTable
         products={this.state.products}
