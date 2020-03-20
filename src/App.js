@@ -15,7 +15,7 @@ class App extends Component {
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1>
-            My React Products List App
+            Sortable Products Listing App
           </h1>
           {/* <a
             className="App-link"

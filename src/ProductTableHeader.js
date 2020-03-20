@@ -5,10 +5,15 @@ import './ProductTableHeader.css';
 
 class ProductTableHeader extends React.Component {
   render() {
+    let currentSort = this.props.currentSort.column === this.props.column ?
+      this.props.currentSort.direction : false;
     return (
       <th>
         {this.props.column}
-        <button className="ProductTableHeader-current">&#x25B2;</button> 
+        <button className={currentSort === 'asc' ? 'ProductTableHeader-current' : ''}>&#x25B2;</button> 
+        <button>&#x25B2;</button>
+
+        <button className={currentSort === 'desc' ? 'ProductTableHeader-current' : ''}>&#x25B2;</button> 
         <button>&#x25BC;</button>
       </th>
     );
