@@ -9,13 +9,13 @@ class ProductRow extends React.Component {
   }
 
   destroy() {
-    this.props.onDestroy(this.props.product.id);
+    this.props.onDestroy(this.props.products.id);
   }
 
   render() {
-    var name = this.props.product.stocked ? this.props.product.name :
+    var name = this.props.products.stocked ? this.props.products.name :
     <span style={{color: 'red'}}>
-      {this.props.product.name}
+      {this.props.products.name}
     </span>
     return (
       <tr>

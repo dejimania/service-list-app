@@ -3,7 +3,7 @@ import React from 'react';
 class Filters extends React.Component {
   constructor(props){
     super(props);
-
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(evt) {
