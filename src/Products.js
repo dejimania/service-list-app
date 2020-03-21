@@ -23,7 +23,17 @@ class Products extends React.Component {
       inStockOnly: false,
       products: PRODUCTS,
     };
+    this.saveProduct = this.saveProduct.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  saveProduct(product) {
+    product.id = new Date().getTime();
+    this.setState((prevState) => {
+      let products = prevState.products;
+      products[product.id] = product;
+      return { products };
+    });
   }
 
   handleFilter(filterInput) {
@@ -43,7 +53,7 @@ class Products extends React.Component {
         filterText={this.state.filterText}
         inStockOnly={this.state.inStockOnly}>
         </ProductTable>
-        <ProductForm ></ProductForm>
+        <ProductForm onSave={this.saveProduct}></ProductForm>
       </div>
     );
   }
