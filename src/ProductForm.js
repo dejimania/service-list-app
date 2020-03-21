@@ -1,18 +1,24 @@
 import React from 'react';
 
+const RESET_VALUES = {id: '', category:'', price:'', stocked: false, name:''};
 
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSave = this.handleSave.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      product: Object.assign({}, RESET_VALUES),
+      errors: {}
+    };
   }
 
   handleSave(evt) {
     this.props.onSave(this.state.product);
     // reset form data
     this.setState({
-      product: Object.assign({}, 'RESET_VALUES')
+      product: Object.assign({}, RESET_VALUES),
+      errors: {}
     });
     evt.preventDefault();
   }

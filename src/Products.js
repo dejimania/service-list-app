@@ -25,10 +25,14 @@ class Products extends React.Component {
     };
     this.saveProduct = this.saveProduct.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleDestroy = this.handleDestroy.bind(this);
   }
 
   saveProduct(product) {
-    product.id = new Date().getTime();
+    if(!product.id) {
+      product.id = new Date().getTime();
+    }
+    
     this.setState((prevState) => {
       let products = prevState.products;
       products[product.id] = product;
@@ -38,6 +42,15 @@ class Products extends React.Component {
 
   handleFilter(filterInput) {
     this.setState(filterInput);
+  }
+
+  handleDestroy(productId) {
+    this.setState((prevState) => {
+      let products = prevState.Products;
+      delete products[productId];
+      return { products };
+    });
+    
   }
 
   render() {
@@ -51,7 +64,9 @@ class Products extends React.Component {
         <ProductTable
         products={this.state.products}
         filterText={this.state.filterText}
-        inStockOnly={this.state.inStockOnly}>
+        inStockOnly={this.state.inStockOnly}
+        onDestroy={this.handleDestroy}
+        >
         </ProductTable>
         <ProductForm onSave={this.saveProduct}></ProductForm>
       </div>
